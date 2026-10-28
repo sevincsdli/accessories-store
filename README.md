@@ -1,5 +1,7 @@
 #  Minimalist Accessories Store
 
+https://accessories-store-iota.vercel.app/
+
 A modern, high-performance E-Commerce web application built with **React.js**, **TypeScript**, and **Tailwind CSS v4**.
 
 ## 🚀 Tech Stack & Architecture
