@@ -2,6 +2,7 @@ import { MOCK_PRODUCTS } from "../data/mockProducts";
 import { useProductFilter } from "../features/products/hooks/useProductFilter";
 import { ProductFilterBar } from "../features/products/components/ProductFilterBar";
 import { ProductGrid } from "../features/products/components/ProductGrid";
+import { useRevealOnScroll } from "../hooks/useRevealOnScroll";
 import type { Product } from "../types";
 
 interface ShopPageProps {
@@ -9,11 +10,19 @@ interface ShopPageProps {
 }
 
 export const ShopPage = ({ onOpenDetail }: ShopPageProps) => {
+  const reveal = useRevealOnScroll<HTMLDivElement>();
   const { filters, filteredProducts, setCategory, setSortBy } =
     useProductFilter(MOCK_PRODUCTS);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full space-y-10">
+    <div
+      ref={reveal.ref}
+      className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full space-y-10 transition-all duration-700 ease-out ${
+        reveal.isVisible
+          ? "opacity-100 translate-y-0"
+          : "opacity-0 translate-y-6"
+      }`}
+    >
       <div className="text-center space-y-3 border-b border-brand-beige/50 pb-10">
         <span className="text-[10px] tracking-[0.3em] uppercase text-brand-accent font-bold">
           Explore All

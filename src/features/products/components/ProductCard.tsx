@@ -29,10 +29,10 @@ export const ProductCard = ({ product, onOpenDetail }: ProductCardProps) => {
   return (
     <div
       onClick={() => onOpenDetail?.(product)}
-      className="group flex flex-col bg-white overflow-hidden transition-all duration-300 cursor-pointer"
+      className="group flex flex-col overflow-hidden rounded-xl border border-brand-beige/70 bg-white shadow-sm transition-all duration-300 hover:shadow-xl cursor-pointer"
     >
       <div
-        className="relative aspect-4/5 bg-brand-light overflow-hidden"
+        className="relative aspect-4/5 bg-brand-light overflow-hidden rounded-t-xl transition-all duration-500 hover:scale-[1.02]"
         onMouseEnter={() => product.images.length > 1 && setCurrentImage(1)}
         onMouseLeave={() => setCurrentImage(0)}
       >
@@ -45,7 +45,7 @@ export const ProductCard = ({ product, onOpenDetail }: ProductCardProps) => {
         <img
           src={product.images[currentImage] || product.images[0]}
           alt={product.name}
-          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
           loading="lazy"
         />
 
@@ -61,7 +61,7 @@ export const ProductCard = ({ product, onOpenDetail }: ProductCardProps) => {
         </div>
       </div>
 
-      <div className="pt-4 flex flex-col flex-1 justify-between">
+      <div className="px-4 pt-4 pb-5 flex flex-col flex-1 justify-between">
         <div>
           <div className="flex items-center justify-between text-[11px] text-brand-muted mb-1">
             <span className="uppercase tracking-widest">

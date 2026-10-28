@@ -31,27 +31,29 @@ export const SearchModal = ({
     : [];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4 bg-black/40 backdrop-blur-xs animate-in fade-in duration-200">
-      <div className="w-full max-w-2xl bg-white shadow-2xl overflow-hidden border border-brand-beige">
+    <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4 bg-black/40 backdrop-blur-md transition-all duration-300 ease-in-out">
+      <div className="w-full max-w-2xl overflow-hidden rounded-2xl border border-brand-beige bg-white shadow-sm transition-shadow duration-300 hover:shadow-xl">
         {/* Search Input Bar */}
-        <div className="p-4 border-b border-brand-beige flex items-center gap-3">
-          <Search className="w-5 h-5 text-brand-muted shrink-0" />
-          <input
-            type="text"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            placeholder="Search accessories or categories..."
-            aria-label="Search products"
-            className="flex-1 bg-transparent text-sm text-brand-dark focus:outline-none placeholder:text-gray-400"
-            autoFocus
-          />
-          <button
-            onClick={onClose}
-            aria-label="Close search"
-            className="p-1 text-brand-muted hover:text-brand-dark cursor-pointer"
-          >
-            <X className="w-5 h-5" />
-          </button>
+        <div className="border-b border-brand-beige p-4">
+          <div className="flex items-center gap-3 rounded-xl border border-brand-beige/60 bg-brand-light/60 px-3 py-2 transition-all duration-300 focus-within:border-brand-accent">
+            <Search className="w-5 h-5 text-brand-muted shrink-0" />
+            <input
+              type="text"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              placeholder="Search accessories or categories..."
+              aria-label="Search products"
+              className="flex-1 bg-transparent text-sm text-brand-dark focus:outline-none placeholder:text-gray-400"
+              autoFocus
+            />
+            <button
+              onClick={onClose}
+              aria-label="Close search"
+              className="p-1 text-brand-muted hover:text-brand-dark cursor-pointer"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
         </div>
 
         {/* Results Container */}
@@ -81,7 +83,7 @@ export const SearchModal = ({
                   <img
                     src={product.images[0]}
                     alt={product.name}
-                    className="w-12 h-14 object-cover rounded-xs bg-brand-beige/50"
+                    className="w-12 h-14 object-cover rounded-xl bg-brand-beige/50"
                   />
                   <div className="flex-1">
                     <h4 className="text-xs font-medium text-brand-dark group-hover:text-brand-accent transition-colors">

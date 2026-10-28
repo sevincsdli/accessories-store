@@ -37,7 +37,7 @@ function HomePageContent({
   return (
     <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full space-y-16">
       {/* Hero Banner Section */}
-      <section className="relative bg-brand-light py-20 px-8 text-center rounded-xs overflow-hidden">
+      <section className="relative bg-brand-light py-20 px-8 text-center rounded-2xl overflow-hidden luxury-fade-up transition-all duration-700 ease-out">
         <div className="max-w-xl mx-auto space-y-4">
           <span className="text-[10px] tracking-[0.3em] uppercase text-brand-accent font-bold">
             New Collection
@@ -49,10 +49,10 @@ function HomePageContent({
             Handcrafted artisan jewelry pieces designed for everyday luxury.
           </p>
           <div className="pt-4 flex justify-center gap-3">
-            <Button size="lg" onClick={() => navigate("/shop")}>
+            <Button size="md" onClick={() => navigate("/shop")}>
               Explore Shop
             </Button>
-            <Button size="lg" variant="outline" onClick={onOpenSearch}>
+            <Button size="md" variant="outline" onClick={onOpenSearch}>
               Search
             </Button>
           </div>
@@ -60,7 +60,7 @@ function HomePageContent({
       </section>
 
       {/* Catalog Section */}
-      <section>
+      <section className="luxury-fade-up transition-all duration-700 ease-out">
         <ProductFilterBar
           activeCategory={filters.category}
           activeSort={filters.sortBy}

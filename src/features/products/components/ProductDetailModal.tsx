@@ -30,15 +30,15 @@ export const ProductDetailModal = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs animate-in fade-in duration-200">
-      <div className="relative w-full max-w-4xl bg-white shadow-2xl overflow-hidden max-h-[90vh] flex flex-col md:flex-row">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-md transition-all duration-300 ease-in-out">
+      <div className="relative w-full max-w-4xl overflow-hidden rounded-2xl bg-white shadow-sm transition-shadow duration-300 hover:shadow-xl max-h-[90vh] flex flex-col md:flex-row">
         {/* Close Button */}
         <button
           onClick={onClose}
           aria-label="Close product details"
-          className="absolute top-4 right-4 z-10 p-2 bg-white/80 hover:bg-white text-brand-dark transition-colors cursor-pointer rounded-full"
+          className="absolute top-5 right-6 z-10 p-2 bg-white/80 hover:bg-white text-brand-dark transition-colors cursor-pointer rounded-full"
         >
-          <X className="w-5 h-5" />
+          <X className="w-4 h-4" />
         </button>
 
         {/* Image Gallery Column */}
@@ -77,15 +77,18 @@ export const ProductDetailModal = ({
         </div>
 
         {/* Product Details Column */}
-        <div className="w-full md:w-1/2 p-8 overflow-y-auto flex flex-col justify-between space-y-6">
+        <div className="w-full md:w-1/2 px-8 pt-10 pb-8 pr-12 overflow-y-auto flex flex-col justify-between space-y-6">
+          {" "}
           <div className="space-y-4">
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between gap-3">
               <span className="text-[10px] tracking-[0.2em] uppercase text-brand-accent font-bold">
                 {product.category}
               </span>
 
               {product.isBestSeller && (
-                <Badge variant="accent">Best Seller</Badge>
+                <div className="ml-auto mr-2">
+                  <Badge variant="accent">Best Seller</Badge>
+                </div>
               )}
             </div>
 
@@ -136,7 +139,6 @@ export const ProductDetailModal = ({
               </ul>
             </div>
           </div>
-
           {/* Action Section */}
           <div className="border-t border-brand-beige/50 pt-6 space-y-4">
             <div className="flex items-center justify-between">

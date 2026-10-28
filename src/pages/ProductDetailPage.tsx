@@ -53,7 +53,7 @@ export const ProductDetailPage = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
         {/* Gallery */}
         <div className="space-y-4">
-          <div className="aspect-square bg-brand-light relative overflow-hidden rounded-xs">
+          <div className="aspect-square bg-brand-light relative overflow-hidden rounded-2xl shadow-sm transition-shadow duration-300 hover:shadow-xl">
             <img
               src={product.images[selectedImage] || product.images[0]}
               alt={product.name}

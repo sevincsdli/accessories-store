@@ -7,3 +7,19 @@
   --color-brand-accent: #a38f78;
   --color-brand-muted: #737373;
 }
+
+@keyframes luxuryFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.luxury-fade-up {
+  animation: luxuryFadeUp 0.7s ease-out both;
+}

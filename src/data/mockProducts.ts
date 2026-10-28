@@ -1,4 +1,8 @@
 import type { Product } from "../types";
+import necklaceImage from "../assets/necklace.avif";
+import ringImage from "../assets/ring.avif";
+import earringsImage from "../assets/earrings.avif";
+import braceletImage from "../assets/bracelet.avif";
 
 export const MOCK_PRODUCTS: Product[] = [
   {
@@ -16,10 +20,7 @@ export const MOCK_PRODUCTS: Product[] = [
       "Hypoallergenic & Nickel-free",
       "Handcrafted finish",
     ],
-    images: [
-      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&q=80&w=800",
-      "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80&w=800",
-    ],
+    images: [necklaceImage, necklaceImage],
     isBestSeller: true,
     isNew: true,
     inStock: true,
@@ -39,9 +40,7 @@ export const MOCK_PRODUCTS: Product[] = [
       "Adjustable band size (6-8)",
       "Tarnish resistant coating",
     ],
-    images: [
-      "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&q=80&w=800",
-    ],
+    images: [ringImage],
     isBestSeller: true,
     inStock: true,
     rating: 4.7,
@@ -60,9 +59,7 @@ export const MOCK_PRODUCTS: Product[] = [
       "18k Gold Vermeil",
       "Hinge closure",
     ],
-    images: [
-      "https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&q=80&w=800",
-    ],
+    images: [earringsImage],
     isNew: true,
     inStock: true,
     rating: 4.8,
@@ -80,9 +77,7 @@ export const MOCK_PRODUCTS: Product[] = [
       "Waterproof & sweatproof",
       "Length: 17cm",
     ],
-    images: [
-      "https://images.unsplash.com/photo-1611591475193-41e737e61a68?auto=format&fit=crop&q=80&w=800",
-    ],
+    images: [braceletImage],
     inStock: true,
     rating: 4.6,
     reviewsCount: 8,

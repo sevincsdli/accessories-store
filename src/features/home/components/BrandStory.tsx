@@ -1,12 +1,13 @@
 import { Button } from "../../../components/ui/Button";
+import storyImage from "../../../assets/necklace.avif";
 
 export const BrandStory = () => {
   return (
     <section className="py-20 border-t border-brand-beige/40">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div className="relative aspect-4/5 bg-brand-light overflow-hidden rounded-xs">
+        <div className="relative aspect-4/5 overflow-hidden rounded-2xl bg-brand-light shadow-sm transition-shadow duration-300 hover:shadow-xl">
           <img
-            src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&q=80&w=1000"
+            src={storyImage}
             alt="Artisan Jewelry Crafting"
             className="w-full h-full object-cover"
             loading="lazy"

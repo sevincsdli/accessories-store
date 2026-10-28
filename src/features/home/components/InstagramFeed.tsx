@@ -1,8 +1,13 @@
+import necklaceImage from "../../../assets/necklace.avif";
+import ringImage from "../../../assets/ring.avif";
+import earringsImage from "../../../assets/earrings.avif";
+import braceletImage from "../../../assets/bracelet.avif";
+
 const INSTAGRAM_POSTS = [
-  "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80&w=600",
-  "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&q=80&w=600",
-  "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&q=80&w=600",
-  "https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&q=80&w=600",
+  necklaceImage,
+  ringImage,
+  earringsImage,
+  braceletImage,
 ];
 
 export const InstagramFeed = () => {
@@ -14,7 +19,7 @@ export const InstagramFeed = () => {
         </span>
 
         <h3 className="text-lg font-light tracking-widest uppercase text-brand-dark">
-          @accessories.official
+          @instagram.account
         </h3>
       </div>
 
@@ -22,7 +27,7 @@ export const InstagramFeed = () => {
         {INSTAGRAM_POSTS.map((url, index) => (
           <a
             key={index}
-            href="https://instagram.com/accessories.official"
+            href="#"
             target="_blank"
             rel="noopener noreferrer"
             className="group relative aspect-square bg-brand-light overflow-hidden block"
