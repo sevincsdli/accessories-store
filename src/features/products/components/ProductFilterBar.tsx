@@ -26,15 +26,14 @@ export const ProductFilterBar = ({
   totalResults,
 }: ProductFilterBarProps) => {
   return (
-    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-brand-beige/50">
-      {/* Category Tabs */}
-      <div className="flex items-center gap-2 overflow-x-auto pb-1 md:pb-0 scrollbar-none">
+    <div className="flex flex-col gap-4 pb-6 border-b border-brand-beige/50 md:flex-row md:items-center md:justify-between">
+      <div className="flex flex-wrap items-center gap-2 overflow-x-auto pb-1 md:pb-0 scrollbar-none">
         {CATEGORIES.map((cat) => (
           <button
             key={cat.value}
             onClick={() => onSelectCategory(cat.value)}
             className={cn(
-              "px-4 py-3 text-[10px] uppercase tracking-[0.2em] font-medium whitespace-nowrap transition-all border cursor-pointer",
+              "px-3 py-2.5 text-[9px] uppercase tracking-[0.18em] font-medium whitespace-nowrap transition-all border cursor-pointer sm:px-4 sm:py-3 sm:text-[10px]",
               activeCategory === cat.value
                 ? "bg-brand-dark text-white border-brand-dark shadow-sm"
                 : "bg-white text-brand-dark border-brand-beige hover:border-brand-dark hover:bg-brand-light",
@@ -45,17 +44,16 @@ export const ProductFilterBar = ({
         ))}
       </div>
 
-      {/* Results Count & Sort Dropdown */}
-      <div className="flex items-center justify-between md:justify-end gap-4 md:gap-6 text-[10px] uppercase tracking-[0.2em] text-brand-muted">
+      <div className="flex items-center justify-between gap-3 text-[9px] uppercase tracking-[0.18em] text-brand-muted sm:justify-end md:gap-6 md:text-[10px]">
         <span className="whitespace-nowrap">{totalResults} products found</span>
 
-        <div className="relative">
+        <div className="relative min-w-[180px] sm:min-w-[210px]">
           <select
             value={activeSort}
             onChange={(e) =>
               onSelectSort(e.target.value as FilterOptions["sortBy"])
             }
-            className="appearance-none bg-transparent border border-brand-beige px-4 py-3 pr-9 text-brand-dark focus:outline-none focus:border-brand-dark uppercase tracking-[0.2em] text-[10px] cursor-pointer"
+            className="appearance-none w-full bg-transparent border border-brand-beige px-3 py-2.5 pr-9 text-brand-dark focus:outline-none focus:border-brand-dark uppercase tracking-[0.18em] text-[9px] cursor-pointer sm:px-4 sm:py-3 sm:text-[10px]"
           >
             <option value="featured">Featured</option>
             <option value="price-low">Price: Low to High</option>

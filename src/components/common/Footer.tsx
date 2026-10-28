@@ -2,9 +2,9 @@ import { Button } from "../ui/Button";
 
 export const Footer = () => {
   return (
-    <footer className="bg-brand-light border-t border-brand-beige/50 pt-16 pb-8">
+    <footer className="bg-brand-light border-t border-brand-beige/50 pt-12 pb-8 sm:pt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-brand-beige/50">
+        <div className="grid grid-cols-1 gap-8 pb-10 border-b border-brand-beige/50 sm:grid-cols-2 md:grid-cols-4 md:gap-10 md:pb-12">
           <div className="space-y-4 md:col-span-1">
             <span className="text-lg font-light tracking-[0.2em] uppercase text-brand-dark block">
               ACCESSORIES{" "}
@@ -76,7 +76,9 @@ export const Footer = () => {
                 className="bg-white border border-brand-beige px-3 py-2 text-xs text-brand-dark focus:outline-none focus:border-brand-dark placeholder:text-gray-400"
               />
 
-              <Button size="sm">Subscribe</Button>
+              <Button size="sm" className="w-full sm:w-auto">
+                Subscribe
+              </Button>
             </form>
           </div>
         </div>
