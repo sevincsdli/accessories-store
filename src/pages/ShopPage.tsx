@@ -10,17 +10,15 @@ interface ShopPageProps {
 }
 
 export const ShopPage = ({ onOpenDetail }: ShopPageProps) => {
-  const reveal = useRevealOnScroll<HTMLDivElement>();
+  const [pageRef, pageVisible] = useRevealOnScroll<HTMLDivElement>();
   const { filters, filteredProducts, setCategory, setSortBy } =
     useProductFilter(MOCK_PRODUCTS);
 
   return (
     <div
-      ref={reveal.ref}
+      ref={pageRef}
       className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full space-y-10 transition-all duration-700 ease-out ${
-        reveal.isVisible
-          ? "opacity-100 translate-y-0"
-          : "opacity-0 translate-y-6"
+        pageVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
       }`}
     >
       <div className="text-center space-y-3 border-b border-brand-beige/50 pb-10">

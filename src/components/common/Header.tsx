@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ShoppingBag, Search, Menu } from "lucide-react";
+import { ShoppingBag, Search, Menu, UserRound } from "lucide-react";
 import { useCart } from "../../features/cart/hooks/useCart";
 
 interface HeaderProps {
@@ -65,6 +65,14 @@ export const Header = ({ onOpenSearch }: HeaderProps) => {
 
         {/* Actions */}
         <div className="flex items-center gap-4">
+          <Link
+            to="/login"
+            className="p-2 text-brand-dark hover:text-brand-accent transition-colors"
+            aria-label="Login"
+          >
+            <UserRound className="w-5 h-5" />
+          </Link>
+
           <button
             onClick={onOpenSearch}
             className="p-2 text-brand-dark hover:text-brand-accent transition-colors cursor-pointer"

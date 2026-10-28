@@ -2,10 +2,15 @@ import { useEffect, useRef, useState } from "react";
 
 export function useRevealOnScroll<T extends HTMLElement>() {
   const ref = useRef<T | null>(null);
+  const observerRef = useRef<IntersectionObserver | null>(null);
   const [isVisible, setIsVisible] = useState(false);
 
-  useEffect(() => {
-    const node = ref.current;
+  const setRef = (node: T | null) => {
+    if (observerRef.current && ref.current) {
+      observerRef.current.unobserve(ref.current);
+    }
+
+    ref.current = node;
 
     if (!node) {
       return;
@@ -34,9 +39,12 @@ export function useRevealOnScroll<T extends HTMLElement>() {
     );
 
     observer.observe(node);
+    observerRef.current = observer;
+  };
 
-    return () => observer.disconnect();
+  useEffect(() => {
+    return () => observerRef.current?.disconnect();
   }, []);
 
-  return { ref, isVisible } as const;
+  return [setRef, isVisible] as const;
 }

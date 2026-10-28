@@ -21,6 +21,7 @@ import { ProductDetailPage } from "./pages/ProductDetailPage";
 import { StoryPage } from "./pages/StoryPage";
 import { CheckoutPage } from "./pages/CheckoutPage";
 import { ContactPage } from "./pages/ContactPage";
+import { AuthPage } from "./pages/AuthPage";
 import type { Product } from "./types";
 
 function HomePageContent({
@@ -108,6 +109,8 @@ export function App() {
               <Route path="/story" element={<StoryPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/checkout" element={<CheckoutPage />} />
+              <Route path="/login" element={<AuthPage mode="login" />} />
+              <Route path="/register" element={<AuthPage mode="register" />} />
             </Routes>
             <ProductDetailModal
               product={selectedProduct}

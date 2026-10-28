@@ -1,9 +1,13 @@
 import { useState } from "react";
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle2 } from "lucide-react";
 import { Button } from "../components/ui/Button";
+import { useRevealOnScroll } from "../hooks/useRevealOnScroll";
 
 export const ContactPage = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [headerRef, headerVisible] = useRevealOnScroll<HTMLDivElement>();
+  const [infoRef, infoVisible] = useRevealOnScroll<HTMLDivElement>();
+  const [formRef, formVisible] = useRevealOnScroll<HTMLDivElement>();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -13,7 +17,14 @@ export const ContactPage = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full space-y-16">
       {/* Page Header */}
-      <div className="text-center space-y-4 max-w-xl mx-auto">
+      <div
+        ref={headerRef}
+        className={`text-center space-y-4 max-w-xl mx-auto transition-all duration-700 ease-out ${
+          headerVisible
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-6"
+        }`}
+      >
         <span className="text-[10px] tracking-[0.3em] uppercase text-brand-accent font-bold">
           Get in Touch
         </span>
@@ -28,7 +39,14 @@ export const ContactPage = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         {/* Contact Info Column */}
-        <div className="lg:col-span-5 bg-brand-light p-8 sm:p-10 space-y-8 border border-brand-beige">
+        <div
+          ref={infoRef}
+          className={`lg:col-span-5 bg-brand-light p-8 sm:p-10 space-y-8 border border-brand-beige transition-all duration-700 ease-out ${
+            infoVisible
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-6"
+          }`}
+        >
           <div className="space-y-3">
             <h2 className="text-lg font-light tracking-widest uppercase text-brand-dark">
               Aura Flagship Boutique
@@ -91,7 +109,14 @@ export const ContactPage = () => {
         </div>
 
         {/* Contact Form Column */}
-        <div className="lg:col-span-7 space-y-6">
+        <div
+          ref={formRef}
+          className={`lg:col-span-7 space-y-6 transition-all duration-700 ease-out ${
+            formVisible
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-6"
+          }`}
+        >
           <div className="space-y-2">
             <h2 className="text-xl font-light uppercase tracking-widest text-brand-dark">
               Send Us a Message

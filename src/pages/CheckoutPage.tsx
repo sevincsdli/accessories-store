@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useCart } from "../features/cart/hooks/useCart";
+import { useRevealOnScroll } from "../hooks/useRevealOnScroll";
 import { formatCurrency } from "../utils/formatters";
 import { Button } from "../components/ui/Button";
 import { CheckCircle2, Lock } from "lucide-react";
@@ -7,6 +8,9 @@ import { CheckCircle2, Lock } from "lucide-react";
 export const CheckoutPage = () => {
   const { items, totalPrice, clearCart } = useCart();
   const [isCompleted, setIsCompleted] = useState(false);
+  const [pageRef, pageVisible] = useRevealOnScroll<HTMLDivElement>();
+  const [formRef, formVisible] = useRevealOnScroll<HTMLFormElement>();
+  const [summaryRef, summaryVisible] = useRevealOnScroll<HTMLDivElement>();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -16,7 +20,12 @@ export const CheckoutPage = () => {
 
   if (isCompleted) {
     return (
-      <div className="max-w-xl mx-auto px-4 py-24 text-center space-y-6">
+      <div
+        ref={pageRef}
+        className={`max-w-xl mx-auto px-4 py-24 text-center space-y-6 transition-all duration-700 ease-out ${
+          pageVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+        }`}
+      >
         <CheckCircle2 className="w-16 h-16 text-brand-accent mx-auto" />
         <h1 className="text-3xl font-light uppercase tracking-widest text-brand-dark">
           Order Confirmed!
@@ -34,7 +43,12 @@ export const CheckoutPage = () => {
 
   if (items.length === 0) {
     return (
-      <div className="max-w-md mx-auto px-4 py-24 text-center space-y-4">
+      <div
+        ref={pageRef}
+        className={`max-w-md mx-auto px-4 py-24 text-center space-y-4 transition-all duration-700 ease-out ${
+          pageVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+        }`}
+      >
         <h1 className="text-xl font-light uppercase tracking-widest text-brand-dark">
           Your Cart is Empty
         </h1>
@@ -49,14 +63,27 @@ export const CheckoutPage = () => {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
+    <div
+      ref={pageRef}
+      className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full transition-all duration-700 ease-out ${
+        pageVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+      }`}
+    >
       <h1 className="text-2xl sm:text-3xl font-light uppercase tracking-widest text-brand-dark mb-10 text-center">
         Checkout
       </h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         {/* Form Column */}
-        <form onSubmit={handleSubmit} className="lg:col-span-7 space-y-8">
+        <form
+          ref={formRef}
+          onSubmit={handleSubmit}
+          className={`lg:col-span-7 space-y-8 transition-all duration-700 ease-out ${
+            formVisible
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-6"
+          }`}
+        >
           {/* Shipping Info */}
           <div className="space-y-4">
             <h2 className="text-xs font-semibold uppercase tracking-wider text-brand-dark border-b border-brand-beige/50 pb-2">
@@ -124,7 +151,14 @@ export const CheckoutPage = () => {
         </form>
 
         {/* Order Summary Column */}
-        <div className="lg:col-span-5 bg-brand-light p-8 space-y-6 h-fit border border-brand-beige">
+        <div
+          ref={summaryRef}
+          className={`lg:col-span-5 bg-brand-light p-8 space-y-6 h-fit border border-brand-beige transition-all duration-700 ease-out ${
+            summaryVisible
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-6"
+          }`}
+        >
           <h2 className="text-xs font-semibold uppercase tracking-wider text-brand-dark border-b border-brand-beige/50 pb-3">
             Order Summary ({items.length} items)
           </h2>

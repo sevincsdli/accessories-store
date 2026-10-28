@@ -1,8 +1,19 @@
+import { useRevealOnScroll } from "../hooks/useRevealOnScroll";
+
 export const StoryPage = () => {
+  const [heroRef, heroVisible] = useRevealOnScroll<HTMLDivElement>();
+  const [storyRef, storyVisible] = useRevealOnScroll<HTMLDivElement>();
+  const [processRef, processVisible] = useRevealOnScroll<HTMLDivElement>();
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full space-y-20">
       {/* Hero Header */}
-      <div className="text-center space-y-4 max-w-2xl mx-auto">
+      <div
+        ref={heroRef}
+        className={`text-center space-y-4 max-w-2xl mx-auto transition-all duration-700 ease-out ${
+          heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+        }`}
+      >
         <span className="text-[10px] tracking-[0.3em] uppercase text-brand-accent font-bold">
           Our Essence
         </span>
@@ -17,7 +28,12 @@ export const StoryPage = () => {
       </div>
 
       {/* Grid Section 1 */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div
+        ref={storyRef}
+        className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center transition-all duration-700 ease-out ${
+          storyVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+        }`}
+      >
         <div className="aspect-4/5 bg-brand-light overflow-hidden">
           <img
             src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&q=80&w=1000"
@@ -47,7 +63,14 @@ export const StoryPage = () => {
       </div>
 
       {/* Design Process Steps */}
-      <div className="bg-brand-light p-12 text-center space-y-10">
+      <div
+        ref={processRef}
+        className={`bg-brand-light p-12 text-center space-y-10 transition-all duration-700 ease-out ${
+          processVisible
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-6"
+        }`}
+      >
         <div className="space-y-2">
           <span className="text-[10px] tracking-[0.3em] uppercase text-brand-accent font-bold">
             Methodology
