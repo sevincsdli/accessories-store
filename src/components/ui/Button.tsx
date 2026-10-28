@@ -17,7 +17,7 @@ export const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const baseStyles =
-    "inline-flex items-center justify-center rounded-xl font-medium transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-md active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-brand-accent/50 disabled:opacity-50 disabled:pointer-events-none uppercase tracking-wider text-xs cursor-pointer";
+    "inline-flex items-center justify-center rounded-xl font-medium transition-all duration-300 ease-out transform-gpu hover:-translate-y-0.5 hover:shadow-md active:translate-y-0 active:scale-[0.99] focus:outline-none focus:ring-2 focus:ring-brand-accent/50 disabled:opacity-50 disabled:pointer-events-none uppercase tracking-wider text-xs cursor-pointer";
 
   const variants = {
     primary: "bg-brand-dark text-white hover:bg-black",

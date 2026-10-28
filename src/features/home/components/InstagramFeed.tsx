@@ -2,6 +2,7 @@ import necklaceImage from "../../../assets/necklace.avif";
 import ringImage from "../../../assets/ring.avif";
 import earringsImage from "../../../assets/earrings.avif";
 import braceletImage from "../../../assets/bracelet.avif";
+import { useRevealOnScroll } from "../../../hooks/useRevealOnScroll";
 
 const INSTAGRAM_POSTS = [
   necklaceImage,
@@ -11,8 +12,15 @@ const INSTAGRAM_POSTS = [
 ];
 
 export const InstagramFeed = () => {
+  const [sectionRef, sectionVisible] = useRevealOnScroll<HTMLElement>();
+
   return (
-    <section className="py-16 border-t border-brand-beige/40 text-center">
+    <section
+      ref={sectionRef}
+      className={`reveal-section py-16 border-t border-brand-beige/40 text-center ${
+        sectionVisible ? "is-visible" : ""
+      }`}
+    >
       <div className="mb-8 space-y-2">
         <span className="text-[10px] tracking-[0.3em] uppercase text-brand-accent font-bold">
           Follow Us
@@ -30,7 +38,10 @@ export const InstagramFeed = () => {
             href="#"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative aspect-square bg-brand-light overflow-hidden block"
+            style={{ transitionDelay: `${index * 90}ms` }}
+            className={`reveal-card group relative aspect-square bg-brand-light overflow-hidden block soft-lift ${
+              sectionVisible ? "is-visible" : ""
+            }`}
           >
             <img
               src={url}

@@ -3,6 +3,7 @@ import type { Product } from "../../../types";
 import { formatCurrency } from "../../../utils/formatters";
 import { useCart } from "../../cart/hooks/useCart";
 import { useToast } from "../../../hooks/useToast";
+import { useRevealOnScroll } from "../../../hooks/useRevealOnScroll";
 import { Badge } from "../../../components/ui/Badge";
 import { Button } from "../../../components/ui/Button";
 import { ShoppingBag, Star } from "lucide-react";
@@ -10,10 +11,16 @@ import { ShoppingBag, Star } from "lucide-react";
 interface ProductCardProps {
   product: Product;
   onOpenDetail?: (product: Product) => void;
+  delay?: number;
 }
 
-export const ProductCard = ({ product, onOpenDetail }: ProductCardProps) => {
+export const ProductCard = ({
+  product,
+  onOpenDetail,
+  delay = 0,
+}: ProductCardProps) => {
   const [currentImage, setCurrentImage] = useState(0);
+  const [cardRef, cardVisible] = useRevealOnScroll<HTMLDivElement>();
   const { addToCart } = useCart();
   const { showToast } = useToast();
 
@@ -28,8 +35,12 @@ export const ProductCard = ({ product, onOpenDetail }: ProductCardProps) => {
 
   return (
     <div
+      ref={cardRef}
       onClick={() => onOpenDetail?.(product)}
-      className="group flex flex-col overflow-hidden rounded-xl border border-brand-beige/70 bg-white shadow-sm transition-all duration-300 hover:shadow-xl cursor-pointer"
+      style={{ transitionDelay: `${delay}ms` }}
+      className={`reveal-card soft-lift group flex flex-col overflow-hidden rounded-xl border border-brand-beige/70 bg-white shadow-sm cursor-pointer ${
+        cardVisible ? "is-visible" : ""
+      }`}
     >
       <div
         className="relative aspect-4/5 bg-brand-light overflow-hidden rounded-t-xl transition-all duration-500 hover:scale-[1.02]"

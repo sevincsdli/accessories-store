@@ -1,15 +1,21 @@
 import { Button } from "../../../components/ui/Button";
 import storyImage from "../../../assets/necklace.avif";
+import { useRevealOnScroll } from "../../../hooks/useRevealOnScroll";
 
 export const BrandStory = () => {
+  const [sectionRef, sectionVisible] = useRevealOnScroll<HTMLElement>();
+
   return (
-    <section className="py-20 border-t border-brand-beige/40">
+    <section
+      ref={sectionRef}
+      className={`reveal-section py-20 border-t border-brand-beige/40 ${sectionVisible ? "is-visible" : ""}`}
+    >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div className="relative aspect-4/5 overflow-hidden rounded-2xl bg-brand-light shadow-sm transition-shadow duration-300 hover:shadow-xl">
+        <div className="relative aspect-4/5 overflow-hidden rounded-2xl bg-brand-light shadow-sm soft-lift hover:shadow-xl">
           <img
             src={storyImage}
             alt="Artisan Jewelry Crafting"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover transition-transform duration-700 ease-out hover:scale-105"
             loading="lazy"
           />
         </div>

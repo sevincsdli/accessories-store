@@ -14,6 +14,7 @@ import { SearchModal } from "./components/common/SearchModal";
 import { BrandStory } from "./features/home/components/BrandStory";
 import { InstagramFeed } from "./features/home/components/InstagramFeed";
 import { Button } from "./components/ui/Button";
+import { useRevealOnScroll } from "./hooks/useRevealOnScroll";
 
 // Pages
 import { ShopPage } from "./pages/ShopPage";
@@ -34,11 +35,18 @@ function HomePageContent({
   const navigate = useNavigate();
   const { filters, filteredProducts, setCategory, setSortBy } =
     useProductFilter(MOCK_PRODUCTS);
+  const [heroRef, heroVisible] = useRevealOnScroll<HTMLElement>();
+  const [catalogRef, catalogVisible] = useRevealOnScroll<HTMLElement>();
 
   return (
     <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full space-y-16">
       {/* Hero Banner Section */}
-      <section className="relative bg-brand-light py-20 px-8 text-center rounded-2xl overflow-hidden luxury-fade-up transition-all duration-700 ease-out">
+      <section
+        ref={heroRef}
+        className={`reveal-section relative bg-brand-light py-20 px-8 text-center rounded-2xl overflow-hidden transition-all duration-700 ease-out ${
+          heroVisible ? "is-visible" : ""
+        }`}
+      >
         <div className="max-w-xl mx-auto space-y-4">
           <span className="text-[10px] tracking-[0.3em] uppercase text-brand-accent font-bold">
             New Collection
@@ -61,7 +69,12 @@ function HomePageContent({
       </section>
 
       {/* Catalog Section */}
-      <section className="luxury-fade-up transition-all duration-700 ease-out">
+      <section
+        ref={catalogRef}
+        className={`reveal-section transition-all duration-700 ease-out ${
+          catalogVisible ? "is-visible" : ""
+        }`}
+      >
         <ProductFilterBar
           activeCategory={filters.category}
           activeSort={filters.sortBy}

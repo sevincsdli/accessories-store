@@ -40,25 +40,16 @@ export const Header = ({ onOpenSearch }: HeaderProps) => {
 
         {/* Navigation Links */}
         <nav className="hidden md:flex items-center gap-8 text-xs uppercase tracking-widest font-medium text-brand-dark">
-          <Link to="/" className="hover:text-brand-accent transition-colors">
+          <Link to="/" className="nav-link hover:text-brand-accent">
             Home
           </Link>
-          <Link
-            to="/shop"
-            className="hover:text-brand-accent transition-colors"
-          >
+          <Link to="/shop" className="nav-link hover:text-brand-accent">
             Shop All
           </Link>
-          <Link
-            to="/story"
-            className="hover:text-brand-accent transition-colors"
-          >
+          <Link to="/story" className="nav-link hover:text-brand-accent">
             Our Story
           </Link>
-          <Link
-            to="/contact"
-            className="hover:text-brand-accent transition-colors"
-          >
+          <Link to="/contact" className="nav-link hover:text-brand-accent">
             Contact
           </Link>
         </nav>
