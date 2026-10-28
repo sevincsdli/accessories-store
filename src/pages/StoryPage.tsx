@@ -7,7 +7,6 @@ export const StoryPage = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full space-y-20">
-      {/* Hero Header */}
       <div
         ref={heroRef}
         className={`text-center space-y-4 max-w-2xl mx-auto transition-all duration-700 ease-out ${
@@ -27,7 +26,6 @@ export const StoryPage = () => {
         </p>
       </div>
 
-      {/* Grid Section 1 */}
       <div
         ref={storyRef}
         className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center transition-all duration-700 ease-out ${
@@ -62,7 +60,6 @@ export const StoryPage = () => {
         </div>
       </div>
 
-      {/* Design Process Steps */}
       <div
         ref={processRef}
         className={`bg-brand-light p-12 text-center space-y-10 transition-all duration-700 ease-out ${

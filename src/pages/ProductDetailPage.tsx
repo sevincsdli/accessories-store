@@ -40,7 +40,6 @@ export const ProductDetailPage = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full space-y-16">
-      {/* Breadcrumb / Back Link */}
       <Link
         to="/shop"
         className="inline-flex items-center gap-2 text-xs text-brand-muted hover:text-brand-dark uppercase tracking-wider transition-colors"
@@ -49,9 +48,7 @@ export const ProductDetailPage = () => {
         Back to Shop
       </Link>
 
-      {/* Main Product View */}
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12 items-start">
-        {/* Gallery */}
         <div className="space-y-4">
           <div className="aspect-square bg-brand-light relative overflow-hidden rounded-2xl shadow-sm transition-shadow duration-300 hover:shadow-xl">
             <img
@@ -84,7 +81,6 @@ export const ProductDetailPage = () => {
           )}
         </div>
 
-        {/* Product Details */}
         <div className="space-y-6">
           <div className="space-y-2">
             <div className="flex items-center gap-2">
@@ -123,7 +119,6 @@ export const ProductDetailPage = () => {
             {product.description}
           </p>
 
-          {/* Features */}
           <div className="space-y-2">
             <h3 className="text-xs uppercase font-semibold text-brand-dark tracking-wider">
               Product Highlights
@@ -141,7 +136,6 @@ export const ProductDetailPage = () => {
             </ul>
           </div>
 
-          {/* Quantity & Add to Cart */}
           <div className="pt-4 space-y-4">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
               <div className="flex items-center gap-3 border border-brand-beige px-4 py-2.5 self-start sm:self-auto">
@@ -173,7 +167,6 @@ export const ProductDetailPage = () => {
             </div>
           </div>
 
-          {/* Value Props */}
           <div className="grid grid-cols-1 gap-4 pt-6 border-t border-brand-beige/50 text-center sm:grid-cols-3">
             <div className="space-y-1">
               <Truck className="w-5 h-5 mx-auto text-brand-accent" />
@@ -204,7 +197,6 @@ export const ProductDetailPage = () => {
         </div>
       </div>
 
-      {/* Related Products */}
       {relatedProducts.length > 0 && (
         <section className="border-t border-brand-beige/50 pt-16 space-y-8">
           <h2 className="text-xl font-light uppercase tracking-widest text-brand-dark text-center">

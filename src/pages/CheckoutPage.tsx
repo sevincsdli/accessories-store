@@ -74,7 +74,6 @@ export const CheckoutPage = () => {
       </h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-        {/* Form Column */}
         <form
           ref={formRef}
           onSubmit={handleSubmit}
@@ -84,7 +83,6 @@ export const CheckoutPage = () => {
               : "opacity-0 translate-y-6"
           }`}
         >
-          {/* Shipping Info */}
           <div className="space-y-4">
             <h2 className="text-xs font-semibold uppercase tracking-wider text-brand-dark border-b border-brand-beige/50 pb-2">
               Shipping Address
@@ -117,7 +115,6 @@ export const CheckoutPage = () => {
             />
           </div>
 
-          {/* Payment Info */}
           <div className="space-y-4 pt-4">
             <h2 className="text-xs font-semibold uppercase tracking-wider text-brand-dark border-b border-brand-beige/50 pb-2 flex items-center justify-between">
               <span>Payment Details</span>
@@ -150,7 +147,6 @@ export const CheckoutPage = () => {
           </Button>
         </form>
 
-        {/* Order Summary Column */}
         <div
           ref={summaryRef}
           className={`lg:col-span-5 bg-brand-light p-8 space-y-6 h-fit border border-brand-beige transition-all duration-700 ease-out ${

@@ -16,7 +16,6 @@ export const ContactPage = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full space-y-16">
-      {/* Page Header */}
       <div
         ref={headerRef}
         className={`text-center space-y-4 max-w-xl mx-auto transition-all duration-700 ease-out ${
@@ -38,7 +37,6 @@ export const ContactPage = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-        {/* Contact Info Column */}
         <div
           ref={infoRef}
           className={`lg:col-span-5 bg-brand-light p-8 sm:p-10 space-y-8 border border-brand-beige transition-all duration-700 ease-out ${
@@ -108,7 +106,6 @@ export const ContactPage = () => {
           </div>
         </div>
 
-        {/* Contact Form Column */}
         <div
           ref={formRef}
           className={`lg:col-span-7 space-y-6 transition-all duration-700 ease-out ${

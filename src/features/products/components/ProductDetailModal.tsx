@@ -32,7 +32,6 @@ export const ProductDetailModal = ({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-md transition-all duration-300 ease-in-out">
       <div className="relative w-full max-w-4xl overflow-hidden rounded-2xl bg-white shadow-sm transition-shadow duration-300 hover:shadow-xl max-h-[90vh] flex flex-col md:flex-row">
-        {/* Close Button */}
         <button
           onClick={onClose}
           aria-label="Close product details"
@@ -41,7 +40,6 @@ export const ProductDetailModal = ({
           <X className="w-4 h-4" />
         </button>
 
-        {/* Image Gallery Column */}
         <div className="w-full md:w-1/2 bg-brand-light p-6 flex flex-col justify-between">
           <div className="aspect-square relative overflow-hidden bg-white mb-4">
             <img
@@ -51,7 +49,6 @@ export const ProductDetailModal = ({
             />
           </div>
 
-          {/* Thumbnails */}
           {product.images.length > 1 && (
             <div className="flex gap-3 overflow-x-auto pb-1">
               {product.images.map((img, idx) => (
@@ -76,7 +73,6 @@ export const ProductDetailModal = ({
           )}
         </div>
 
-        {/* Product Details Column */}
         <div className="w-full md:w-1/2 px-8 pt-10 pb-8 pr-12 overflow-y-auto flex flex-col justify-between space-y-6">
           {" "}
           <div className="space-y-4">
@@ -120,7 +116,6 @@ export const ProductDetailModal = ({
               {product.description}
             </p>
 
-            {/* Product Details */}
             <div className="border-t border-brand-beige/50 pt-4 space-y-2">
               <h4 className="text-xs uppercase font-semibold text-brand-dark tracking-wider">
                 Product Details:
@@ -139,7 +134,6 @@ export const ProductDetailModal = ({
               </ul>
             </div>
           </div>
-          {/* Action Section */}
           <div className="border-t border-brand-beige/50 pt-6 space-y-4">
             <div className="flex items-center justify-between">
               <span className="text-xs uppercase tracking-wider font-medium text-brand-dark">

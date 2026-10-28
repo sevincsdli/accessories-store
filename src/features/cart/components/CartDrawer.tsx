@@ -20,7 +20,6 @@ export const CartDrawer: React.FC = () => {
 
   return (
     <div className="fixed inset-0 z-50 overflow-hidden">
-      {/* Backdrop */}
       <div
         className="fixed inset-0 bg-black/40 backdrop-blur-md transition-opacity duration-300 ease-in-out"
         onClick={closeCart}
@@ -28,7 +27,6 @@ export const CartDrawer: React.FC = () => {
 
       <div className="fixed inset-y-0 right-0 max-w-full flex pl-10 transition-transform duration-300 ease-in-out">
         <div className="w-screen max-w-md bg-white shadow-lg flex flex-col justify-between transition-shadow duration-300 hover:shadow-xl">
-          {/* Header */}
           <div className="p-6 border-b border-brand-beige/50 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <ShoppingBag className="w-5 h-5 text-brand-dark" />
@@ -46,7 +44,6 @@ export const CartDrawer: React.FC = () => {
             </button>
           </div>
 
-          {/* Free Shipping Progress Bar */}
           <div className="px-6 py-3 bg-brand-light border-b border-brand-beige/40">
             <p className="text-xs text-brand-dark mb-1 font-medium">
               {totalPrice >= freeShippingThreshold ? (
@@ -66,7 +63,6 @@ export const CartDrawer: React.FC = () => {
             </div>
           </div>
 
-          {/* Cart Items List */}
           <div className="flex-1 overflow-y-auto p-6 space-y-6">
             {items.length === 0 ? (
               <div className="text-center py-12">
@@ -106,7 +102,6 @@ export const CartDrawer: React.FC = () => {
                       </p>
                     </div>
 
-                    {/* Quantity Selector */}
                     <div className="flex items-center gap-3 border border-brand-beige w-fit px-2 py-1">
                       <button
                         onClick={() => updateQuantity(product.id, quantity - 1)}
@@ -134,7 +129,6 @@ export const CartDrawer: React.FC = () => {
             )}
           </div>
 
-          {/* Footer / Summary */}
           {items.length > 0 && (
             <div className="p-6 border-t border-brand-beige/50 bg-brand-light/30 space-y-4">
               <div className="flex justify-between text-sm">

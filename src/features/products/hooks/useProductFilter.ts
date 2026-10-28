@@ -16,7 +16,6 @@ export const useProductFilter = (initialProducts: Product[]) => {
   const filteredProducts = useMemo(() => {
     return initialProducts
       .filter((product) => {
-        // Category filter
         if (
           filters.category !== "all" &&
           product.category !== filters.category
@@ -24,7 +23,6 @@ export const useProductFilter = (initialProducts: Product[]) => {
           return false;
         }
 
-        // Search filter
         if (
           filters.searchQuery &&
           !product.name
@@ -37,7 +35,6 @@ export const useProductFilter = (initialProducts: Product[]) => {
           return false;
         }
 
-        // Price filter
         if (
           product.price < filters.minPrice ||
           product.price > filters.maxPrice
@@ -45,7 +42,6 @@ export const useProductFilter = (initialProducts: Product[]) => {
           return false;
         }
 
-        // Stock filter
         if (filters.inStockOnly && !product.inStock) {
           return false;
         }
@@ -53,13 +49,12 @@ export const useProductFilter = (initialProducts: Product[]) => {
         return true;
       })
       .sort((a, b) => {
-        // Sorting
         if (filters.sortBy === "price-low") return a.price - b.price;
         if (filters.sortBy === "price-high") return b.price - a.price;
         if (filters.sortBy === "newest")
           return (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0);
 
-        return 0; // 'featured'
+        return 0;
       });
   }, [initialProducts, filters]);
 
